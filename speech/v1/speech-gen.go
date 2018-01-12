@@ -151,8 +151,8 @@ type ListOperationsResponse struct {
 }
 
 func (s *ListOperationsResponse) MarshalJSON() ([]byte, error) {
-	type noMethod ListOperationsResponse
-	raw := noMethod(*s)
+	type NoMethod ListOperationsResponse
+	raw := NoMethod(*s)
 	return gensupport.MarshalJSON(raw, s.ForceSendFields, s.NullFields)
 }
 
@@ -186,8 +186,8 @@ type LongRunningRecognizeRequest struct {
 }
 
 func (s *LongRunningRecognizeRequest) MarshalJSON() ([]byte, error) {
-	type noMethod LongRunningRecognizeRequest
-	raw := noMethod(*s)
+	type NoMethod LongRunningRecognizeRequest
+	raw := NoMethod(*s)
 	return gensupport.MarshalJSON(raw, s.ForceSendFields, s.NullFields)
 }
 
@@ -197,8 +197,8 @@ func (s *LongRunningRecognizeRequest) MarshalJSON() ([]byte, error) {
 type Operation struct {
 	// Done: If the value is `false`, it means the operation is still in
 	// progress.
-	// If true, the operation is completed, and either `error` or `response`
-	// is
+	// If `true`, the operation is completed, and either `error` or
+	// `response` is
 	// available.
 	Done bool `json:"done,omitempty"`
 
@@ -261,8 +261,8 @@ type Operation struct {
 }
 
 func (s *Operation) MarshalJSON() ([]byte, error) {
-	type noMethod Operation
-	raw := noMethod(*s)
+	type NoMethod Operation
+	raw := NoMethod(*s)
 	return gensupport.MarshalJSON(raw, s.ForceSendFields, s.NullFields)
 }
 
@@ -310,8 +310,8 @@ type RecognitionAudio struct {
 }
 
 func (s *RecognitionAudio) MarshalJSON() ([]byte, error) {
-	type noMethod RecognitionAudio
-	raw := noMethod(*s)
+	type NoMethod RecognitionAudio
+	raw := NoMethod(*s)
 	return gensupport.MarshalJSON(raw, s.ForceSendFields, s.NullFields)
 }
 
@@ -319,12 +319,20 @@ func (s *RecognitionAudio) MarshalJSON() ([]byte, error) {
 // specifies how to process the
 // request.
 type RecognitionConfig struct {
+	// EnableWordTimeOffsets: *Optional* If `true`, the top result includes
+	// a list of words and
+	// the start and end time offsets (timestamps) for those words.
+	// If
+	// `false`, no word-level time offset information is returned. The
+	// default is
+	// `false`.
+	EnableWordTimeOffsets bool `json:"enableWordTimeOffsets,omitempty"`
+
 	// Encoding: *Required* Encoding of audio data sent in all
 	// `RecognitionAudio` messages.
 	//
 	// Possible values:
-	//   "ENCODING_UNSPECIFIED" - Not specified. Will return result
-	// google.rpc.Code.INVALID_ARGUMENT.
+	//   "ENCODING_UNSPECIFIED" - Not specified.
 	//   "LINEAR16" - Uncompressed 16-bit signed little-endian samples
 	// (Linear PCM).
 	//   "FLAC" - [`FLAC`](https://xiph.org/flac/documentation.html) (Free
@@ -415,26 +423,28 @@ type RecognitionConfig struct {
 	// speech recognition.
 	SpeechContexts []*SpeechContext `json:"speechContexts,omitempty"`
 
-	// ForceSendFields is a list of field names (e.g. "Encoding") to
-	// unconditionally include in API requests. By default, fields with
-	// empty values are omitted from API requests. However, any non-pointer,
-	// non-interface field appearing in ForceSendFields will be sent to the
-	// server regardless of whether the field is empty or not. This may be
-	// used to include empty fields in Patch requests.
+	// ForceSendFields is a list of field names (e.g.
+	// "EnableWordTimeOffsets") to unconditionally include in API requests.
+	// By default, fields with empty values are omitted from API requests.
+	// However, any non-pointer, non-interface field appearing in
+	// ForceSendFields will be sent to the server regardless of whether the
+	// field is empty or not. This may be used to include empty fields in
+	// Patch requests.
 	ForceSendFields []string `json:"-"`
 
-	// NullFields is a list of field names (e.g. "Encoding") to include in
-	// API requests with the JSON null value. By default, fields with empty
-	// values are omitted from API requests. However, any field with an
-	// empty value appearing in NullFields will be sent to the server as
-	// null. It is an error if a field in this list has a non-empty value.
-	// This may be used to include null fields in Patch requests.
+	// NullFields is a list of field names (e.g. "EnableWordTimeOffsets") to
+	// include in API requests with the JSON null value. By default, fields
+	// with empty values are omitted from API requests. However, any field
+	// with an empty value appearing in NullFields will be sent to the
+	// server as null. It is an error if a field in this list has a
+	// non-empty value. This may be used to include null fields in Patch
+	// requests.
 	NullFields []string `json:"-"`
 }
 
 func (s *RecognitionConfig) MarshalJSON() ([]byte, error) {
-	type noMethod RecognitionConfig
-	raw := noMethod(*s)
+	type NoMethod RecognitionConfig
+	raw := NoMethod(*s)
 	return gensupport.MarshalJSON(raw, s.ForceSendFields, s.NullFields)
 }
 
@@ -467,8 +477,8 @@ type RecognizeRequest struct {
 }
 
 func (s *RecognizeRequest) MarshalJSON() ([]byte, error) {
-	type noMethod RecognizeRequest
-	raw := noMethod(*s)
+	type NoMethod RecognizeRequest
+	raw := NoMethod(*s)
 	return gensupport.MarshalJSON(raw, s.ForceSendFields, s.NullFields)
 }
 
@@ -505,8 +515,8 @@ type RecognizeResponse struct {
 }
 
 func (s *RecognizeResponse) MarshalJSON() ([]byte, error) {
-	type noMethod RecognizeResponse
-	raw := noMethod(*s)
+	type NoMethod RecognizeResponse
+	raw := NoMethod(*s)
 	return gensupport.MarshalJSON(raw, s.ForceSendFields, s.NullFields)
 }
 
@@ -545,8 +555,8 @@ type SpeechContext struct {
 }
 
 func (s *SpeechContext) MarshalJSON() ([]byte, error) {
-	type noMethod SpeechContext
-	raw := noMethod(*s)
+	type NoMethod SpeechContext
+	raw := NoMethod(*s)
 	return gensupport.MarshalJSON(raw, s.ForceSendFields, s.NullFields)
 }
 
@@ -561,8 +571,9 @@ type SpeechRecognitionAlternative struct {
 	// hypothesis, and
 	// only for `is_final=true` results. Clients should not rely on
 	// the
-	// `confidence` field as it is not guaranteed to be accurate or
-	// consistent.
+	// `confidence` field as it is not guaranteed to be accurate, or even
+	// set, in
+	// any of the results.
 	// The default of 0.0 is a sentinel value indicating `confidence` was
 	// not set.
 	Confidence float64 `json:"confidence,omitempty"`
@@ -570,6 +581,10 @@ type SpeechRecognitionAlternative struct {
 	// Transcript: *Output-only* Transcript text representing the words that
 	// the user spoke.
 	Transcript string `json:"transcript,omitempty"`
+
+	// Words: *Output-only* A list of word-specific information for each
+	// recognized word.
+	Words []*WordInfo `json:"words,omitempty"`
 
 	// ForceSendFields is a list of field names (e.g. "Confidence") to
 	// unconditionally include in API requests. By default, fields with
@@ -589,18 +604,18 @@ type SpeechRecognitionAlternative struct {
 }
 
 func (s *SpeechRecognitionAlternative) MarshalJSON() ([]byte, error) {
-	type noMethod SpeechRecognitionAlternative
-	raw := noMethod(*s)
+	type NoMethod SpeechRecognitionAlternative
+	raw := NoMethod(*s)
 	return gensupport.MarshalJSON(raw, s.ForceSendFields, s.NullFields)
 }
 
 func (s *SpeechRecognitionAlternative) UnmarshalJSON(data []byte) error {
-	type noMethod SpeechRecognitionAlternative
+	type NoMethod SpeechRecognitionAlternative
 	var s1 struct {
 		Confidence gensupport.JSONFloat64 `json:"confidence"`
-		*noMethod
+		*NoMethod
 	}
-	s1.noMethod = (*noMethod)(s)
+	s1.NoMethod = (*NoMethod)(s)
 	if err := json.Unmarshal(data, &s1); err != nil {
 		return err
 	}
@@ -614,10 +629,17 @@ type SpeechRecognitionResult struct {
 	// Alternatives: *Output-only* May contain one or more recognition
 	// hypotheses (up to the
 	// maximum specified in `max_alternatives`).
-	// These alternatives are ordered in terms of accuracy, with the
-	// first/top
+	// These alternatives are ordered in terms of accuracy, with the top
+	// (first)
 	// alternative being the most probable, as ranked by the recognizer.
 	Alternatives []*SpeechRecognitionAlternative `json:"alternatives,omitempty"`
+
+	// ChannelTag: For multi-channel audio, this is the channel number
+	// corresponding to the
+	// recognized result for the audio from that channel.
+	// For audio_channel_count = N, its output values can range from '0' to
+	// 'N-1'.
+	ChannelTag int64 `json:"channelTag,omitempty"`
 
 	// ForceSendFields is a list of field names (e.g. "Alternatives") to
 	// unconditionally include in API requests. By default, fields with
@@ -637,8 +659,8 @@ type SpeechRecognitionResult struct {
 }
 
 func (s *SpeechRecognitionResult) MarshalJSON() ([]byte, error) {
-	type noMethod SpeechRecognitionResult
-	raw := noMethod(*s)
+	type NoMethod SpeechRecognitionResult
+	raw := NoMethod(*s)
 	return gensupport.MarshalJSON(raw, s.ForceSendFields, s.NullFields)
 }
 
@@ -726,9 +748,9 @@ type Status struct {
 	// google.rpc.Code.
 	Code int64 `json:"code,omitempty"`
 
-	// Details: A list of messages that carry the error details.  There will
-	// be a
-	// common set of message types for APIs to use.
+	// Details: A list of messages that carry the error details.  There is a
+	// common set of
+	// message types for APIs to use.
 	Details []googleapi.RawMessage `json:"details,omitempty"`
 
 	// Message: A developer-facing error message, which should be in
@@ -756,8 +778,61 @@ type Status struct {
 }
 
 func (s *Status) MarshalJSON() ([]byte, error) {
-	type noMethod Status
-	raw := noMethod(*s)
+	type NoMethod Status
+	raw := NoMethod(*s)
+	return gensupport.MarshalJSON(raw, s.ForceSendFields, s.NullFields)
+}
+
+// WordInfo: Word-specific information for recognized words. Word
+// information is only
+// included in the response when certain request parameters are set,
+// such
+// as `enable_word_time_offsets`.
+type WordInfo struct {
+	// EndTime: *Output-only* Time offset relative to the beginning of the
+	// audio,
+	// and corresponding to the end of the spoken word.
+	// This field is only set if `enable_word_time_offsets=true` and only
+	// in the top hypothesis.
+	// This is an experimental feature and the accuracy of the time offset
+	// can
+	// vary.
+	EndTime string `json:"endTime,omitempty"`
+
+	// StartTime: *Output-only* Time offset relative to the beginning of the
+	// audio,
+	// and corresponding to the start of the spoken word.
+	// This field is only set if `enable_word_time_offsets=true` and only
+	// in the top hypothesis.
+	// This is an experimental feature and the accuracy of the time offset
+	// can
+	// vary.
+	StartTime string `json:"startTime,omitempty"`
+
+	// Word: *Output-only* The word corresponding to this set of
+	// information.
+	Word string `json:"word,omitempty"`
+
+	// ForceSendFields is a list of field names (e.g. "EndTime") to
+	// unconditionally include in API requests. By default, fields with
+	// empty values are omitted from API requests. However, any non-pointer,
+	// non-interface field appearing in ForceSendFields will be sent to the
+	// server regardless of whether the field is empty or not. This may be
+	// used to include empty fields in Patch requests.
+	ForceSendFields []string `json:"-"`
+
+	// NullFields is a list of field names (e.g. "EndTime") to include in
+	// API requests with the JSON null value. By default, fields with empty
+	// values are omitted from API requests. However, any field with an
+	// empty value appearing in NullFields will be sent to the server as
+	// null. It is an error if a field in this list has a non-empty value.
+	// This may be used to include null fields in Patch requests.
+	NullFields []string `json:"-"`
+}
+
+func (s *WordInfo) MarshalJSON() ([]byte, error) {
+	type NoMethod WordInfo
+	raw := NoMethod(*s)
 	return gensupport.MarshalJSON(raw, s.ForceSendFields, s.NullFields)
 }
 
@@ -878,7 +953,7 @@ func (c *OperationsCancelCall) Do(opts ...googleapi.CallOption) (*Empty, error) 
 		},
 	}
 	target := &ret
-	if err := json.NewDecoder(res.Body).Decode(target); err != nil {
+	if err := gensupport.DecodeResponse(target, res); err != nil {
 		return nil, err
 	}
 	return ret, nil
@@ -1012,7 +1087,7 @@ func (c *OperationsDeleteCall) Do(opts ...googleapi.CallOption) (*Empty, error) 
 		},
 	}
 	target := &ret
-	if err := json.NewDecoder(res.Body).Decode(target); err != nil {
+	if err := gensupport.DecodeResponse(target, res); err != nil {
 		return nil, err
 	}
 	return ret, nil
@@ -1155,7 +1230,7 @@ func (c *OperationsGetCall) Do(opts ...googleapi.CallOption) (*Operation, error)
 		},
 	}
 	target := &ret
-	if err := json.NewDecoder(res.Body).Decode(target); err != nil {
+	if err := gensupport.DecodeResponse(target, res); err != nil {
 		return nil, err
 	}
 	return ret, nil
@@ -1333,7 +1408,7 @@ func (c *OperationsListCall) Do(opts ...googleapi.CallOption) (*ListOperationsRe
 		},
 	}
 	target := &ret
-	if err := json.NewDecoder(res.Body).Decode(target); err != nil {
+	if err := gensupport.DecodeResponse(target, res); err != nil {
 		return nil, err
 	}
 	return ret, nil
@@ -1498,7 +1573,7 @@ func (c *SpeechLongrunningrecognizeCall) Do(opts ...googleapi.CallOption) (*Oper
 		},
 	}
 	target := &ret
-	if err := json.NewDecoder(res.Body).Decode(target); err != nil {
+	if err := gensupport.DecodeResponse(target, res); err != nil {
 		return nil, err
 	}
 	return ret, nil
@@ -1620,7 +1695,7 @@ func (c *SpeechRecognizeCall) Do(opts ...googleapi.CallOption) (*RecognizeRespon
 		},
 	}
 	target := &ret
-	if err := json.NewDecoder(res.Body).Decode(target); err != nil {
+	if err := gensupport.DecodeResponse(target, res); err != nil {
 		return nil, err
 	}
 	return ret, nil
